@@ -2,10 +2,9 @@ var mysql = require('mysql');
 
 var pool = mysql.createPool({
     connectionLimit: 10,
-    host: 'mysql-25111-0.cloudclusters.net',
-    port: 25111,
-    user: 'james',
-    password: 'james12345',
+    host: 'localhost',
+    user: 'root',
+    password: '',
     database: 'adsrevenue'
 });
 

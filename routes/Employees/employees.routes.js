@@ -1,4 +1,4 @@
-const { verifyEmployeeByEmail } = require('./employees.controller');
+const { createEmployee, verifyEmployeeByEmail } = require('./employees.controller');
 const { verifyEmployeesRefreshToken } = require('./employees.service');
 
 const router = require('express').Router();
@@ -57,5 +57,9 @@ router.post("/refresh", (req, res) => {
     }
   });
 });
+
+
+// Add New Emplotyees
+router.post("/employee/create", createEmployee);
 
 module.exports = router;
