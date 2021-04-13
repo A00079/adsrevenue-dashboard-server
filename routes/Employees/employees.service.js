@@ -11,13 +11,15 @@ module.exports = {
         });
     },
     updateRefreshToken: (data, callBack) => {
-        let sql = 'UPDATE loggindetails SET refreshtoken = ? WHERE email = ?';
-        pool.query(sql, [data.token, data.email], (err, results, fields) => {
+        let loginTime = new Date().toLocaleTimeString();
+        let loginDate = new Date().toLocaleDateString().replace(/\//g, '-');
+        let sql = 'UPDATE loggindetails SET refreshtoken = ?, isloggedin = ?, loggedintime = ?, loggedindate = ? WHERE email = ?';
+        pool.query(sql, [data.token, '1', loginTime, loginDate, data.email], (err, results, fields) => {
             if (err) {
                 console.log('updateta error--------->', err);
                 return callBack(err);
             }
-            return callBack(null, results[0]);
+            return callBack(null, results);
         });
     },
     verifyEmployeesByEmail: (email, callBack) => {

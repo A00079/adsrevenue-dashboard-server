@@ -24,7 +24,7 @@ module.exports = {
     },
     verifyEmployeeByEmail: (req, res) => {
         const body = req.body.user;
-        console.log('body',body.email);
+        console.log('body', body.email);
         let accessToken = jwt.sign(body, "access", { expiresIn: "1h" });
         let refreshToken = jwt.sign(body, "refresh", { expiresIn: "7d" });
         verifyEmployeesByEmail(body.email, (err, results) => {
