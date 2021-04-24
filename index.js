@@ -10,6 +10,8 @@ const db = require('./db/db.js');
 const Contact = require('./routes/Contact/contactus.js');
 const PostEmailTemplates = require('./routes/PostEmailTemplates/EmailTemplates.js');
 const Employees = require('./routes/Employees/employees.routes');
+const AffiliateProject = require('./routes/AffiliateProjects/affiliateprojects.routes');
+
 
 // Middlewares
 app.use(cors());
@@ -25,6 +27,8 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use('/api/client/contact', Contact);
 app.use('/api/client/postemail', PostEmailTemplates);
 app.use('/api/adsrevenue', Employees);
+app.use('/api/adsrevenue', AffiliateProject);
+
 
 if (process.env.NODE_ENV === 'production') {
 
